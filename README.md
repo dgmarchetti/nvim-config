@@ -72,4 +72,35 @@ with ``:source ~/.config/nvim/init.vim`` or by restarting Neovim.
 
 You should now have Vim-Plug installed and running in Neovim, allowing you 
 to manage and use plugins effectively. You can add or remove plugins in your 
-Neovim configuration file and then run :PlugInstall to update your plugins.
+Neovim configuration file and then run ``:PlugInstall`` to update your plugins.
+
+### Install [CoC (Conquer of Completion)](https://github.com/neoclide/coc.nvim)
+Install CoC plugins by the following commands extracted from this [automation script](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#automation-script):
+```
+mkdir -p ~/.local/share/nvim/site/pack/coc/start
+cd ~/.local/share/nvim/site/pack/coc/start
+curl --fail -L https://github.com/neoclide/coc.nvim/archive/release.tar.gz | tar xzfv -
+
+# Install extensions
+mkdir -p ~/.config/coc/extensions
+cd ~/.config/coc/extensions
+if [ ! -f package.json ]
+then
+  echo '{"dependencies":{}}'> package.json
+fi
+# Change extension names to the extensions you need
+npm install coc-snippets --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+```
+See the [requirements](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim#requirements) for CoC.
+
+### Install other dependencies
+
+```
+# Install nvim module for Python
+python3 -m pip install --user --upgrade pynvim
+
+# Install neovim npm package.
+npm install -g neovim
+
+```
+
